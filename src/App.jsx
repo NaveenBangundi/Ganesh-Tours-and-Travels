@@ -184,24 +184,17 @@ export default function App() {
 
         {/* Mobile Dropdown Menu */}
         {mobileMenuOpen && (
-          <div style={{
-            background: 'var(--bg-slate)',
-            borderBottom: '1px solid var(--border-gold)',
-            padding: '1.5rem',
-            display: 'flex',
-            flexDirection: 'column',
-            gap: '1rem'
-          }}>
-            <a href="#home" onClick={() => setMobileMenuOpen(false)} style={{ color: 'white', fontWeight: 600 }}>Home</a>
-            <a href="#about" onClick={() => setMobileMenuOpen(false)} style={{ color: 'white', fontWeight: 600 }}>About</a>
-            <a href="#fleet" onClick={() => setMobileMenuOpen(false)} style={{ color: 'white', fontWeight: 600 }}>Fleet</a>
-            <a href="#owner" onClick={() => setMobileMenuOpen(false)} style={{ color: 'white', fontWeight: 600 }}>Owner Profile</a>
-            <a href="#drivers" onClick={() => setMobileMenuOpen(false)} style={{ color: 'white', fontWeight: 600 }}>Driver Partners</a>
-            <a href="#packages" onClick={() => setMobileMenuOpen(false)} style={{ color: 'white', fontWeight: 600 }}>Tours</a>
-            <a href="#services" onClick={() => setMobileMenuOpen(false)} style={{ color: 'white', fontWeight: 600 }}>Services</a>
-            <a href="#calculator" onClick={() => setMobileMenuOpen(false)} style={{ color: 'white', fontWeight: 600 }}>Calculator</a>
-            <a href="#partner" onClick={() => setMobileMenuOpen(false)} style={{ color: 'white', fontWeight: 600 }}>Join Fleet</a>
-            <a href="#contact" onClick={() => setMobileMenuOpen(false)} style={{ color: 'white', fontWeight: 600 }}>Contact</a>
+          <div className="mobile-dropdown-menu">
+            <a href="#home" onClick={() => setMobileMenuOpen(false)}>Home</a>
+            <a href="#about" onClick={() => setMobileMenuOpen(false)}>About</a>
+            <a href="#fleet" onClick={() => setMobileMenuOpen(false)}>Fleet</a>
+            <a href="#owner" onClick={() => setMobileMenuOpen(false)}>Owner Profile</a>
+            <a href="#drivers" onClick={() => setMobileMenuOpen(false)}>Driver Partners</a>
+            <a href="#packages" onClick={() => setMobileMenuOpen(false)}>Tours</a>
+            <a href="#services" onClick={() => setMobileMenuOpen(false)}>Services</a>
+            <a href="#calculator" onClick={() => setMobileMenuOpen(false)}>Calculator</a>
+            <a href="#partner" onClick={() => setMobileMenuOpen(false)}>Join Fleet</a>
+            <a href="#contact" onClick={() => setMobileMenuOpen(false)}>Contact</a>
           </div>
         )}
       </header>
