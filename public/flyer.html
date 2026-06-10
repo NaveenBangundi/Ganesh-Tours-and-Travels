@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sri Ganesh Travels - Customer Flyer</title>
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- FontAwesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+  <style>
+    :root {
+      --primary-gold: #D4AF37;
+      --primary-gold-dark: #B89025;
+      --primary-gold-light: #F0D58C;
+      --bg-slate: #0F1219;
+      --bg-slate-light: #171C26;
+      --text-dark: #1E2229;
+      --text-muted: #555555;
+      --text-light: #F3F4F6;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: #f0f0f2;
+      color: var(--text-dark);
+      line-height: 1.5;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      padding: 2rem 1rem;
+    }
+
+    /* Flyer Page Layout: Styled as a premium A4 or vertical card */
+    .flyer-card {
+      background-color: #FFFFFF;
+      width: 100%;
+      max-width: 720px;
+      border: 8px double var(--primary-gold);
+      border-radius: 20px;
+      padding: 3.5rem 3rem;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Gold corner accents */
+    .flyer-card::before, .flyer-card::after {
+      content: '';
+      position: absolute;
+      width: 40px;
+      height: 40px;
+      border: 3px solid var(--primary-gold);
+    }
+    .flyer-card::before {
+      top: 15px;
+      left: 15px;
+      border-right: none;
+      border-bottom: none;
+    }
+    .flyer-card::after {
+      bottom: 15px;
+      right: 15px;
+      border-left: none;
+      border-top: none;
+    }
+
+    /* Brand Header */
+    .header-logo-row {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 15px;
+      margin-bottom: 2rem;
+      text-align: center;
+    }
+
+    .brand-logo-img {
+      width: 80px;
+      height: 80px;
+      object-fit: contain;
+      filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.1));
+    }
+
+    .brand-texts {
+      text-align: left;
+    }
+
+    .brand-title {
+      font-family: 'Cinzel', serif;
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: var(--bg-slate);
+      line-height: 1.1;
+      letter-spacing: 0.5px;
+    }
+
+    .brand-tagline {
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--primary-gold-dark);
+      text-transform: uppercase;
+      letter-spacing: 2.5px;
+      margin-top: 4px;
+    }
+
+    .divider-strip {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 1.5rem 0 2rem;
+    }
+
+    .divider-line {
+      flex: 1;
+      height: 1.5px;
+      background: linear-gradient(90deg, transparent, var(--primary-gold), transparent);
+    }
+
+    .divider-diamond {
+      color: var(--primary-gold-dark);
+      font-size: 0.8rem;
+      margin: 0 10px;
+    }
+
+    /* Message / Intro section */
+    .flyer-intro {
+      text-align: center;
+      font-size: 1.15rem;
+      font-weight: 600;
+      color: var(--text-dark);
+      margin-bottom: 2rem;
+      padding: 0 1rem;
+    }
+
+    /* Core details grid */
+    .highlights-list {
+      list-style: none;
+      margin-bottom: 2.5rem;
+    }
+
+    .highlight-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 15px;
+      margin-bottom: 1.25rem;
+    }
+
+    .highlight-icon-box {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background-color: rgba(212, 175, 55, 0.12);
+      border: 1px solid var(--primary-gold);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--primary-gold-dark);
+      font-size: 0.95rem;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .highlight-item-texts h4 {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--bg-slate);
+      margin-bottom: 2px;
+    }
+
+    .highlight-item-texts p {
+      font-size: 0.92rem;
+      color: var(--text-muted);
+      line-height: 1.45;
+    }
+
+    /* QR Code Display Card */
+    .qr-showcase-box {
+      background-color: var(--bg-slate);
+      color: var(--text-light);
+      border-radius: 16px;
+      padding: 2.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 2rem;
+      margin-bottom: 2.5rem;
+      box-shadow: 0 8px 25px rgba(15, 18, 25, 0.15);
+      border: 1px solid var(--primary-gold-dark);
+    }
+
+    .qr-content {
+      flex: 1;
+    }
+
+    .qr-cta-title {
+      font-family: 'Cinzel', serif;
+      font-size: 1.4rem;
+      color: var(--primary-gold-light);
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      letter-spacing: 0.5px;
+    }
+
+    .qr-cta-desc {
+      font-size: 0.88rem;
+      color: rgba(255, 255, 255, 0.8);
+      line-height: 1.5;
+    }
+
+    .qr-instruction-steps {
+      list-style: none;
+      margin-top: 1rem;
+      font-size: 0.82rem;
+      color: var(--primary-gold-light);
+    }
+
+    .qr-instruction-steps li {
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .qr-image-wrapper {
+      background-color: #FFFFFF;
+      padding: 12px;
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 2px solid var(--primary-gold);
+    }
+
+    .qr-img {
+      width: 150px;
+      height: 150px;
+      object-fit: contain;
+    }
+
+    /* Direct contact block */
+    .footer-contact-block {
+      text-align: center;
+      border-top: 1.5px dashed var(--primary-gold);
+      padding-top: 2rem;
+    }
+
+    .footer-contact-title {
+      font-size: 0.9rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      color: var(--text-muted);
+      margin-bottom: 1rem;
+    }
+
+    .contact-details-row {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 2.5rem;
+      flex-wrap: wrap;
+    }
+
+    .contact-badge-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      color: var(--bg-slate);
+      font-weight: 700;
+      font-size: 1.25rem;
+      transition: color 0.3s;
+    }
+
+    .contact-badge-item:hover {
+      color: var(--primary-gold-dark);
+    }
+
+    .contact-badge-item i {
+      font-size: 1.4rem;
+    }
+
+    .contact-badge-item.whatsapp i {
+      color: #25D366;
+    }
+
+    .contact-badge-item.phone i {
+      color: var(--primary-gold-dark);
+    }
+
+    .owner-signature {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      margin-top: 1.5rem;
+      font-weight: 500;
+    }
+
+    /* Print Specific Rules */
+    @media print {
+      body {
+        background-color: #FFFFFF;
+        padding: 0;
+        min-height: auto;
+      }
+      .flyer-card {
+        box-shadow: none;
+        max-width: 100%;
+        border-width: 5px;
+        padding: 2rem;
+      }
+      .qr-showcase-box {
+        background-color: #FFFFFF !important;
+        border: 2px solid var(--text-dark) !important;
+        color: var(--text-dark) !important;
+        box-shadow: none !important;
+      }
+      .qr-cta-title {
+        color: var(--text-dark) !important;
+      }
+      .qr-cta-desc {
+        color: var(--text-muted) !important;
+      }
+      .qr-instruction-steps {
+        color: var(--text-muted) !important;
+      }
+      .qr-image-wrapper {
+        border-color: var(--text-dark) !important;
+        box-shadow: none !important;
+      }
+    }
+
+    /* Mobile Responsive adjustments for preview screen */
+    @media (max-width: 600px) {
+      .flyer-card {
+        padding: 2rem 1.5rem;
+      }
+      .brand-title {
+        font-size: 1.6rem;
+      }
+      .brand-logo-img {
+        width: 60px;
+        height: 60px;
+      }
+      .qr-showcase-box {
+        flex-direction: column-reverse;
+        text-align: center;
+        padding: 1.5rem;
+        gap: 1.5rem;
+      }
+      .qr-instruction-steps {
+        display: inline-block;
+        text-align: left;
+      }
+      .contact-details-row {
+        gap: 1.25rem;
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="flyer-card">
+    
+    <!-- Brand Header -->
+    <header class="header-logo-row">
+      <img src="/ganesha_logo.png" alt="Sri Ganesh Travels Logo" class="brand-logo-img" />
+      <div class="brand-texts">
+        <h1 class="brand-title">Sri Ganesh Travels</h1>
+        <p class="brand-tagline">Bangalore, Karnataka</p>
+      </div>
+    </header>
+
+    <div class="divider-strip">
+      <span class="divider-line"></span>
+      <span class="divider-diamond">♦</span>
+      <span class="divider-line"></span>
+    </div>
+
+    <!-- Intro Text -->
+    <p class="flyer-intro">
+      "Travel with Trust. Arrive with Comfort."
+    </p>
+
+    <!-- Business Highlights -->
+    <ul class="highlights-list">
+      
+      <li class="highlight-item">
+        <div class="highlight-icon-box">
+          <i class="fa-solid fa-user-tie"></i>
+        </div>
+        <div class="highlight-item-texts">
+          <h4>Experienced Professional Owner-Driver</h4>
+          <p>Managed personally by <strong>Mr. Dayanand Bangundi</strong> with over 20+ years of defensive highway driving experience across South India.</p>
+        </div>
+      </li>
+
+      <li class="highlight-item">
+        <div class="highlight-icon-box">
+          <i class="fa-solid fa-car"></i>
+        </div>
+        <div class="highlight-item-texts">
+          <h4>Premium Flagship Fleet</h4>
+          <p>Ride in our luxury, clean, and highly maintained 7-Seater <strong>Maruti Suzuki Ertiga VXI S-CNG (KA 05 AN 8381)</strong> or select from our network of sedans, SUVs, and coaches.</p>
+        </div>
+      </li>
+
+      <li class="highlight-item">
+        <div class="highlight-icon-box">
+          <i class="fa-solid fa-route"></i>
+        </div>
+        <div class="highlight-item-texts">
+          <h4>Wide Range of Quality Services</h4>
+          <p>Punctual bookings for Outstation Trips, Airport Transfers, Holiday Packages, and Local Bangalore City journeys. Dual A/C, Bluetooth music, and spacious luggage carriers included.</p>
+        </div>
+      </li>
+
+    </ul>
+
+    <!-- QR Code Section -->
+    <div class="qr-showcase-box">
+      <div class="qr-content">
+        <h3 class="qr-cta-title">Scan QR & Book Cabs</h3>
+        <p class="qr-cta-desc">Check estimated pricing online and book your comfortable cab within 2 minutes!</p>
+        <ul class="qr-instruction-steps">
+          <li><i class="fa-solid fa-mobile-screen"></i> 1. Open your phone camera or scanner app</li>
+          <li><i class="fa-solid fa-qrcode"></i> 2. Point camera at the QR code on the right</li>
+          <li><i class="fa-solid fa-link"></i> 3. Tap the link to open the booking page!</li>
+        </ul>
+      </div>
+      <div class="qr-image-wrapper">
+        <img src="/website-qr.png" alt="Scan QR Code to Book Cabs" class="qr-img" />
+      </div>
+    </div>
+
+    <!-- Contact & Direct Actions -->
+    <footer class="footer-contact-block">
+      <p class="footer-contact-title">Direct Booking & Inquiries</p>
+      
+      <div class="contact-details-row">
+        
+        <a href="tel:8105218893" class="contact-badge-item phone">
+          <i class="fa-solid fa-square-phone"></i>
+          <span>Call: 8105218893</span>
+        </a>
+
+        <a href="https://api.whatsapp.com/send?phone=918105218893&text=Hi%20Sri%20Ganesh%20Travels!%20I'd%20like%20to%20enquire%20about%20a%20trip." target="_blank" rel="noreferrer" class="contact-badge-item whatsapp">
+          <i class="fa-brands fa-square-whatsapp"></i>
+          <span>WhatsApp Cabs</span>
+        </a>
+
+      </div>
+
+      <p class="owner-signature">Sri Ganesh Travels · Proprietor: Dayanand Bangundi · Serving Safely Since 2006</p>
+    </footer>
+
+  </div>
+
+</body>
+</html>

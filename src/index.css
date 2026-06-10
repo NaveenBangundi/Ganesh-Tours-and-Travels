@@ -4336,6 +4336,9 @@ input[type=number] {
     grid-template-columns: 1fr;
     gap: 1.25rem;
   }
+  .booking-card .booking-form-grid .form-full-width {
+    grid-column: span 1;
+  }
   .testimonials-slider, .services-grid, .gallery-grid {
     grid-template-columns: 1fr;
   }
@@ -4350,6 +4353,22 @@ input[type=number] {
 }
 
 @media (max-width: 600px) {
+  .va-category-tabs, .tour-category-tabs {
+    justify-content: flex-start;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    padding: 0.5rem 1.5rem;
+    margin-left: -1.5rem;
+    margin-right: -1.5rem;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+  .va-category-tabs::-webkit-scrollbar, .tour-category-tabs::-webkit-scrollbar {
+    display: none;
+  }
+  .va-cat-tab, .tour-category-tabs .tab-btn {
+    flex: 0 0 auto;
+  }
   .ertiga-gallery-tabs {
     display: flex;
     overflow-x: auto;
@@ -4422,10 +4441,6 @@ input[type=number] {
   .tour-inclusions-exclusions {
     grid-template-columns: 1fr;
     gap: 1.5rem;
-  }
-  .tour-category-tabs {
-    flex-wrap: wrap;
-    gap: 0.5rem;
   }
 }
 
